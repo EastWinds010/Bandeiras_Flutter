@@ -33,7 +33,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       body: Column(
         children: [
-          Container(
+          SizedBox(
             height:401,
             child: Row(
               children: [
