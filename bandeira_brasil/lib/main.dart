@@ -1,214 +1,80 @@
+import 'dart:ffi';
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: HomeScreen(),
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
 
-class HomeScreen extends StatelessWidget {
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({Key? key, required this.title}) : super(key: key);
+
+  final String title;
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Flutter custom clipper example"),
-      ),
-      body: ListView(
-        padding: EdgeInsets.all(20.0),
-        children: <Widget>[
-          ClipPath(
-            clipper: SideCutClipper(),
-            child: Container(
-              height: 600,
-              width: 500,
-              color: Colors.pink,
-              child: Center(child: Text("SideCutClipper()")),
-            ),
+      body:
+          Stack(
+            children: [
+              Expanded(
+                child: Container(
+                  color: Colors.green,
+                  )
+                ),
+                const ClipPath(
+                  clipper: Test1(),
+                  child: Container(
+                    color: Colors.black,
+                  ),
+                )
+            ],
           ),
-          ClipPath(
-            clipper: MultipleRoundedCurveClipper(),
-            child: Container(
-              height: 100,
-              color: Colors.pink,
-              child: Center(child: Text("MultipleRoundedCurveClipper()")),
-            ),
-          ),
-          SizedBox(
-            height: 20.0,
-          ),
-          ClipPath(
-            clipper: MultiplePointedEdgeClipper(),
-            child: Container(
-              height: 100,
-              color: Colors.green,
-              child: Center(child: Text("MultiplePointedEdgeClipper()")),
-            ),
-          ),
-          SizedBox(
-            height: 20.0,
-          ),
-          ClipPath(
-            clipper: OctagonalClipper(),
-            child: Container(
-              height: 220,
-              color: Colors.red,
-              child: Center(child: Text("OctagonalClipper()")),
-            ),
-          ),
-          SizedBox(
-            height: 10.0,
-          ),
-          ClipPath(
-            clipper: HexagonalClipper(),
-            child: Container(
-              height: 220,
-              color: Colors.blueAccent,
-              child: Center(child: Text("HexagonalClipper()")),
-            ),
-          ),
-          SizedBox(
-            height: 10.0,
-          ),
-          ClipPath(
-            clipper: HexagonalClipper(reverse: true),
-            child: Container(
-              height: 220,
-              color: Colors.orangeAccent,
-              child: Center(child: Text("HexagonalClipper(reverse: true)")),
-            ),
-          ),
-          SizedBox(
-            height: 10.0,
-          ),
-          ClipPath(
-            clipper: ParallelogramClipper(),
-            child: Container(
-              height: 220,
-              color: Colors.pinkAccent,
-              child: Center(child: Text("ParallelogramClipper()")),
-            ),
-          ),
-          SizedBox(
-            height: 10.0,
-          ),
-          ClipPath(
-            clipper: DiagonalPathClipperOne(),
-            child: Container(
-              height: 120,
-              color: Colors.red,
-              child: Center(child: Text("DiagonalPathClipper()")),
-            ),
-          ),
-          SizedBox(
-            height: 10.0,
-          ),
-          ClipPath(
-            clipper: DiagonalPathClipperTwo(),
-            child: Container(
-              height: 120,
-              color: Colors.pink,
-              child: Center(child: Text("DiagonalPathClipper()")),
-            ),
-          ),
-          SizedBox(
-            height: 10.0,
-          ),
-          ClipPath(
-            clipper: WaveClipperOne(),
-            child: Container(
-              height: 120,
-              color: Colors.deepPurple,
-              child: Center(child: Text("WaveClipperOne()")),
-            ),
-          ),
-          SizedBox(
-            height: 10.0,
-          ),
-          ClipPath(
-            clipper: WaveClipperOne(reverse: true),
-            child: Container(
-              height: 120,
-              color: Colors.deepPurple,
-              child: Center(child: Text("WaveClipperOne(reverse: true)")),
-            ),
-          ),
-          SizedBox(
-            height: 10.0,
-          ),
-          ClipPath(
-            clipper: WaveClipperTwo(),
-            child: Container(
-              height: 120,
-              color: Colors.orange,
-              child: Center(child: Text("WaveClipperTwo()")),
-            ),
-          ),
-          SizedBox(
-            height: 10.0,
-          ),
-          ClipPath(
-            clipper: WaveClipperTwo(reverse: true),
-            child: Container(
-              height: 120,
-              color: Colors.orange,
-              child: Center(child: Text("WaveClipperTwo(reverse: true)")),
-            ),
-          ),
-          SizedBox(
-            height: 10.0,
-          ),
-          ClipPath(
-            clipper: RoundedDiagonalPathClipper(),
-            child: Container(
-              height: 320,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(50.0)),
-                color: Colors.orange,
-              ),
-              child: Center(child: Text("RoundedDiagonalPathClipper()")),
-            ),
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          ClipPath(
-            clipper: ArrowClipper(70, 80, Edge.BOTTOM),
-            child: Container(
-              height: 120,
-              color: Colors.green,
-              child: Center(child: Text("ArrowClipper()")),
-            ),
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          ClipPath(
-            clipper: StarClipper(8),
-            child: Container(
-              height: 450,
-              color: Colors.indigo,
-              child: Center(child: Text("Starlipper()")),
-            ),
-          ),
-          ClipPath(
-            clipper: MessageClipper(borderRadius: 16),
-            child: Container(
-              height: 200,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(16.0)),
-                color: Colors.red,
-              ),
-              child: Center(child: Text("MessageClipper()")),
-            ),
-          ),
-        ],
-      ),
     );
   }
+
+
+// class Losango extends CustomPainter() {
+
+//   @override
+//   void paint(Canvas canvas, Size size){
+//     double modulo = size.width /20;
+//     final path = Path()
+//       ..moveTo(modulo *10, modulo *1.7)
+//       ..lineTo(modulo *18.3, modulo *7)
+//       ..lineTo(modulo *10, modulo *12.3)
+//       ..lineTo(modulo *1.7, modulo *7)
+//       ..lineTo(modulo *10, modulo *1.7);
+    
+//   }
+  
+// }
+
+class Test1 extends CustomClipper<Path>{
+  @override
+  Path getClip()
 }
