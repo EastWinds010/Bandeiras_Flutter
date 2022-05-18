@@ -1,7 +1,4 @@
-
-
 import 'package:flutter/material.dart';
-import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,6 +7,7 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -35,17 +33,38 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
-      body:
-          Stack(
+      body: Stack(
+        children: [
+          Row(
             children: [
-              Expanded(
-                child: Container(
-                  color: Colors.green,
-                  )
-                ),
+              Container(
+                width: 96,
+                color: Colors.red,
+              ),
+              Container(
+                width: 200,
+                color: Colors.white,
+              ),
+              Container(
+                width: 96,
+                color: Colors.red,
+              ),
             ],
           ),
+          Align(
+            alignment: Alignment.center,
+            child: Transform.rotate(
+              angle: 1.55,
+              child: SizedBox(
+                width: 220,
+                height: 220,
+                child: Image.asset('assets/images/brasao.png'),
+              ),
+            ),
+          )
+        ]
+      )
     );
+  }
 }

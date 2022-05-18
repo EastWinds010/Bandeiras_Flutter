@@ -1,7 +1,5 @@
-
-
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 
 void main() {
   runApp(const MyApp());
@@ -37,15 +35,34 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      body:
-          Stack(
-            children: [
-              Expanded(
-                child: Container(
-                  color: Colors.green,
-                  )
-                ),
-            ],
+      body: Stack(
+        children: [
+          Expanded(
+            child: Container(
+              color: Colors.red
+            )
           ),
+          Align(
+            alignment: Alignment.center,
+            child: Container(
+              width: 70,
+              color: Colors.white,
+            ),
+          ),
+          Positioned(
+            top:100,
+            right: 170,
+            child: Transform.rotate(
+              angle: 1.57,
+              child: SizedBox(
+                width:70,
+                height: 450,
+                child: Container(color: Colors.white,)
+              ),
+            ),
+          )
+        ],
+        )
     );
+  }
 }

@@ -1,7 +1,4 @@
-
-
 import 'package:flutter/material.dart';
-import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,6 +7,7 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -24,7 +22,6 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
-
   final String title;
 
   @override
@@ -37,15 +34,18 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      body:
-          Stack(
-            children: [
-              Expanded(
-                child: Container(
-                  color: Colors.green,
-                  )
-                ),
-            ],
+      body:Row(
+        children: [
+          Container(
+            width: 196.5,
+            color: Colors.yellow,
           ),
+          Container(
+            width: 196,
+            color: Colors.blue,
+          ),
+        ],
+      )
     );
+  }
 }

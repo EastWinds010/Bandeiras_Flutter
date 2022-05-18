@@ -1,7 +1,4 @@
-
-
 import 'package:flutter/material.dart';
-import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 
 void main() {
   runApp(const MyApp());
@@ -37,15 +34,22 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      body:
-          Stack(
-            children: [
-              Expanded(
-                child: Container(
-                  color: Colors.green,
-                  )
-                ),
-            ],
+      body: Row(
+        children: [
+          Container(
+            width: 131,
+            color: Colors.red,
           ),
+          Container(
+            width: 131,
+            color: Colors.blue,
+          ),
+          Container(
+            width: 130,
+            color: Colors.white,
+          )
+        ],
+      )
     );
+  }
 }
