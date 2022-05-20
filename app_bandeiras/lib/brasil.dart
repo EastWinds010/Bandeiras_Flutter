@@ -10,12 +10,35 @@ class Brasil extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Bandeira Brasil'),
       ),
-      body: Center(
-child: CustomPaint(
-  size: Size(500,(2000*0.625).toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
-  painter: Losango(),
-),
+      body:Stack(
+        children: [
+          Expanded(child: Container(color: Colors.green)),
+          Center(
+          child: CustomPaint(
+          size: Size(300,(900*0.625).toDouble()),
+          painter: Losango(),
+            ),
+        ),
+        const Center(
+          child: CircleAvatar(
+            maxRadius: 100,
+            backgroundColor: Color.fromRGBO(0, 34, 119, 1),
+          )
+        ),
+        Align(
+          alignment: Alignment.center,
+          child: SizedBox(
+            height: 200,
+            width: 200,
+            child: Transform.rotate(
+              angle: 1.5,
+              child: Image.asset('assets/images/brasao_brasil.png'),
+            ),
+          ),
+        )
+        ]
       ),
+      
     );
   }
 }
@@ -28,7 +51,7 @@ class Losango extends CustomPainter{
     
 
   Paint paint0 = Paint()
-      ..color = const Color.fromARGB(255, 33, 150, 243)
+      ..color = Color.fromARGB(255, 255, 251, 0)
       ..style = PaintingStyle.fill
       ..strokeWidth = 2.0;
      

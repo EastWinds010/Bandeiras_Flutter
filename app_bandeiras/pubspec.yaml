@@ -63,6 +63,7 @@ flutter:
     - assets/images/brasao_libano.png
     - assets/images/brasao_portugal.png
     - assets/images/star_eua.png
+    - assets/images/brasao_brasil.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
