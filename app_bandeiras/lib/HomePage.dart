@@ -1,6 +1,7 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:app_bandeiras/barbados.dart';
+import 'package:app_bandeiras/brasil.dart';
 import 'package:app_bandeiras/dinamarca.dart';
 import 'package:app_bandeiras/eua.dart';
 import 'package:app_bandeiras/finlandia.dart';
@@ -95,6 +96,13 @@ class HomePage extends StatelessWidget {
               );
             } ,
             child: const Text('Bandeira Portugal'),
+            ),
+            RaisedButton(onPressed:(){
+              Navigator.push(context, 
+              MaterialPageRoute(builder: (BuildContext context) => const Brasil())
+              );
+            } ,
+            child: const Text('Bandeira Brasil'),
             ),
           ],
         ),
